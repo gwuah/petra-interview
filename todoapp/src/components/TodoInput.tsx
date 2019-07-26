@@ -15,7 +15,9 @@ const TodoInput: React.FunctionComponent<TodoInputProps> = ({
   return (
     <div>
       <Input handleChange={handleChange} value={todoValue} />
-      <button onClick={handleClick}>Add Todo</button>
+      <button className="btn" onClick={handleClick}>
+        Add Todo
+      </button>
     </div>
   );
 };

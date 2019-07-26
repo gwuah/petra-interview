@@ -1,0 +1,59 @@
+/* 
+ */
+
+* {
+  font-family: "Secular One";
+}
+
+body {
+  background-color: #f1eff1;
+}
+
+#Application-container {
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: left;
+  margin: 0 auto;
+  width: 50%;
+}
+
+#Todo-item-container {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+#Todos-container {
+  margin-top: 20px;
+}
+
+.Todo-value {
+  font-size: 20px;
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+
+#Normal-todo-view input {
+  margin-right: 10px;
+}
+
+.btn {
+  border: none;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #faedb8;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 70%;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-right: 20px;
+}

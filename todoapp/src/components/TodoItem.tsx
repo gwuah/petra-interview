@@ -53,6 +53,9 @@ class TodoItem extends React.Component<TodoItemProps, TodoItemState> {
   }
 
   toggleEditView(e: React.MouseEvent<HTMLElement>) {
+    if (this.state.checked) {
+      this.setState({ checked: false });
+    }
     const newStatus = !this.state.editing;
     this.setState({ editing: newStatus });
   }
@@ -68,26 +71,22 @@ class TodoItem extends React.Component<TodoItemProps, TodoItemState> {
   render() {
     const { editing, value, checked } = this.state;
     const { isUpdatingTodo } = this.props;
-
-    if (editing) {
-      return (
-        <EditingTodoView
-          handleChange={this.handleChange}
-          handleUpdate={this.updateTodoItem}
-          isUpdatingTodo={isUpdatingTodo}
-          value={value}
-        />
-      );
-    } else {
-      return (
-        <NormalTodoView
-          handleClick={this.toggleEditView}
-          toggleCheck={this.toggleChecked}
-          checked={checked}
-          value={value}
-        />
-      );
-    }
+    const componentToBeRendered = editing ? (
+      <EditingTodoView
+        handleChange={this.handleChange}
+        handleUpdate={this.updateTodoItem}
+        isUpdatingTodo={isUpdatingTodo}
+        value={value}
+      />
+    ) : (
+      <NormalTodoView
+        handleClick={this.toggleEditView}
+        toggleCheck={this.toggleChecked}
+        checked={checked}
+        value={value}
+      />
+    );
+    return <div id="Todo-item-container">{componentToBeRendered}</div>;
   }
 }
 

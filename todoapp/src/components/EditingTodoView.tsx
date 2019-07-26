@@ -1,5 +1,6 @@
 import * as React from "react";
 import Input from "./Input";
+import Spinner from "./Spinner";
 
 interface ValueType {
   type: string | "";
@@ -21,8 +22,10 @@ const EditingTodoView: React.FC<EditingTodoViewProps> = ({
   return (
     <div>
       <Input handleChange={handleChange} value={value.type} />
-      <button onClick={handleUpdate}>Update</button>
-      {isUpdatingTodo ? <span>Updating</span> : null}
+      <button className="btn" onClick={handleUpdate}>
+        Update
+      </button>
+      {isUpdatingTodo ? <Spinner /> : null}
     </div>
   );
 };

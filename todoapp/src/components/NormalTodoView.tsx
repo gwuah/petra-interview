@@ -20,10 +20,12 @@ const NormalTodoView: React.FC<NormalTodoViewProps> = ({
   value
 }) => {
   return (
-    <div style={checked ? checkedStyle : {}}>
+    <div style={checked ? checkedStyle : {}} id="Normal-todo-view">
       <input type="checkbox" onChange={toggleCheck} />
-      <h3>{value.type}</h3>
-      <button onClick={handleClick}>Edit</button>
+      <span className="Todo-value">{value.type}</span>
+      <button className="btn" onClick={handleClick}>
+        edit
+      </button>
     </div>
   );
 };

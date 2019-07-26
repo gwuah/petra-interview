@@ -4,6 +4,8 @@ import TodoItem from "./components/TodoItem";
 import * as api from "./api";
 import * as utilities from "./utilities";
 import { Todo } from "./types";
+import Spinner from "./components/Spinner";
+import "./App.css";
 
 type ApplicationState = {
   todoValue: string;
@@ -98,26 +100,28 @@ class App extends React.Component<{}, ApplicationState> {
     const { todoValue, todos, isLoadingTodos, isUpdatingTodo } = this.state;
 
     return (
-      <div>
+      <div id="Application-container">
         <TodoInput
           todoValue={todoValue}
           handleChange={this.handleTodoInputChange}
           handleClick={this.addNewTodo}
         />
-        {isLoadingTodos ? (
-          <h1>Loading Todos</h1>
-        ) : (
-          todos.map((item, index) => {
-            return (
-              <TodoItem
-                isUpdatingTodo={isUpdatingTodo}
-                handleUpdate={this.updateTodo}
-                value={item}
-                key={index}
-              />
-            );
-          })
-        )}
+        <div id="Todos-container">
+          {isLoadingTodos ? (
+            <Spinner />
+          ) : (
+            todos.map((item, index) => {
+              return (
+                <TodoItem
+                  isUpdatingTodo={isUpdatingTodo}
+                  handleUpdate={this.updateTodo}
+                  value={item}
+                  key={index}
+                />
+              );
+            })
+          )}
+        </div>
       </div>
     );
   }
