@@ -1,6 +1,6 @@
-type Todo = {
+type TodoType = {
   id: string;
   type: string;
 };
 
-export { Todo };
+export type Todo = TodoType;
