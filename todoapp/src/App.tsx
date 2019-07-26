@@ -101,6 +101,7 @@ class App extends React.Component<{}, ApplicationState> {
 
     return (
       <div id="Application-container">
+        <h1> MY TODO APP</h1>
         <TodoInput
           todoValue={todoValue}
           handleChange={this.handleTodoInputChange}
